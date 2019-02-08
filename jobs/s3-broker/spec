@@ -1,0 +1,32 @@
+---
+name: s3-broker
+
+templates:
+  bin/s3-broker-ctl.erb: bin/s3-broker-ctl
+  config/s3-broker-config.json.erb: config/s3-broker-config.json
+
+packages:
+  - s3-broker
+
+properties:
+  s3-broker.port:
+    default: 80
+  s3-broker.basic_auth_username:
+    description: "Basic auth username"
+  s3-broker.basic_auth_password:
+    description: "Basic auth password"
+  s3-broker.log_level:
+    description: "Log level"
+    default: "INFO"
+  s3-broker.aws_region:
+    description: "AWS region (for example eu-west-1)"
+  s3-broker.resource_prefix:
+    description: "Prefix used for s3 buckets and IAM usernames"
+    default: "paas-s3-broker-"
+  s3-broker.iam_user_path:
+    description: "Path for the created IAM users"
+    default: "/paas-s3-broker/"
+  s3-broker.deploy_environment:
+    description: "Environment this broker is deployed into"
+  s3-broker.catalog:
+    description: "Broker catalog (including services and plans)"

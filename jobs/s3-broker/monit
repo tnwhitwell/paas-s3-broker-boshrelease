@@ -1,0 +1,5 @@
+check process s3-broker
+  with pidfile /var/vcap/sys/run/s3-broker/s3-broker.pid
+  start program "/var/vcap/jobs/s3-broker/bin/s3-broker-ctl start"
+  stop program "/var/vcap/jobs/s3-broker/bin/s3-broker-ctl stop"
+  group vcap

@@ -1,0 +1,11 @@
+{
+  "port": "<%= p('s3-broker.port') %>",
+  "basic_auth_username": "<%= p('s3-broker.basic_auth_username') %>",
+  "basic_auth_password": "<%= p('s3-broker.basic_auth_password') %>",
+  "log_level": "<%= p('s3-broker.log_level') %>",
+  "aws_region": "<%= p('s3-broker.aws_region') %>",
+  "catalog": <%= JSON.dump(p('s3-broker.catalog')) %>,
+  "resource_prefix": "<%= p('s3-broker.resource_prefix') %>",
+  "iam_user_path": "<%= p('s3-broker.iam_user_path') %>",
+  "deploy_env": "<%= p('s3-broker.deploy_environment') %>"
+}

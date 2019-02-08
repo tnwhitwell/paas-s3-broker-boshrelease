@@ -1,0 +1,4 @@
+[submodule "src/paas-s3-broker"]
+	path = src/paas-s3-broker
+	url = https://github.com/alphagov/paas-s3-broker
+	branch = initial
