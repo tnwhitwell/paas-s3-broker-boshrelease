@@ -4,6 +4,9 @@ name: s3-broker
 templates:
   bin/s3-broker-ctl.erb: bin/s3-broker-ctl
   config/s3-broker-config.json.erb: config/s3-broker-config.json
+  config/locket.ca_cert.crt.erb: config/locket.ca_cert.crt
+  config/locket.client_cert.crt.erb: config/locket.client_cert.crt
+  config/locket.client_key.key.erb: config/locket.client_key.key
 
 packages:
   - s3-broker
@@ -30,5 +33,14 @@ properties:
     description: "ARN for IP restricion policy"
   s3-broker.deploy_environment:
     description: "Environment this broker is deployed into"
+  s3-broker.locket.api_location:
+    description: "The host and port for the Locket server"
+    example: "127.0.0.1:8891"
+  s3-broker.locket.ca_cert:
+    description: "A PEM formatted certificate of a CA the Locket client will trust"
+  s3-broker.locket.client_cert:
+    description: "A PEM formatted certificate used for client connections to the Locket server"
+  s3-broker.locket.client_key:
+    description: "A PEM formatted key used for client connections to the Locket server"
   s3-broker.catalog:
     description: "Broker catalog (including services and plans)"
