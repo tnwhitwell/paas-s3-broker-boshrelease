@@ -9,8 +9,11 @@
   "iam_user_path": "<%= p('s3-broker.iam_user_path') %>",
   "iam_ip_restriction_policy_arn": "<%= p('s3-broker.iam_ip_restriction_policy_arn') %>",
   "deploy_env": "<%= p('s3-broker.deploy_environment') %>",
-  "locket_address": "<%= p('s3-broker.locket.api_location') %>",
-  "locket_ca_cert_file": "/var/vcap/jobs/s3-broker/config/locket.ca_cert.crt",
-  "locket_client_cert_file": "/var/vcap/jobs/s3-broker/config/locket.client_cert.crt",
-  "locket_client_key_file": "/var/vcap/jobs/s3-broker/config/locket.client_key.key"
+
+  "locket": {
+    "address": "<%= p('s3-broker.locket.api_location') %>",
+    "ca_cert_file": "/var/vcap/jobs/s3-broker/config/locket.ca_cert.crt",
+    "client_cert_file": "/var/vcap/jobs/s3-broker/config/locket.client_cert.crt",
+    "client_key_file": "/var/vcap/jobs/s3-broker/config/locket.client_key.key"
+  }
 }
