@@ -44,3 +44,18 @@ properties:
     description: "A PEM formatted key used for client connections to the Locket server"
   s3-broker.catalog:
     description: "Broker catalog (including services and plans)"
+  s3-broker.tls:
+    description: "Certificate and private key for TLS listener"
+    example: |
+      ca: |
+        -----BEGIN CERTIFICATE-----
+        ...
+        -----END CERTIFICATE-----
+      certificate: |
+        -----BEGIN CERTIFICATE-----
+        ...
+        -----END CERTIFICATE-----
+      private_key: |
+        -----BEGIN EXAMPLE RSA PRIVATE KEY-----
+        ...
+        -----END EXAMPLE RSA PRIVATE KEY-----

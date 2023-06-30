@@ -10,6 +10,12 @@
   "iam_ip_restriction_policy_arn": "<%= p('s3-broker.iam_ip_restriction_policy_arn') %>",
   "deploy_env": "<%= p('s3-broker.deploy_environment') %>",
 
+  "tls": {
+    "certificate": "<%= p('s3-broker.tls.certificate') %>",
+    "private_key": "<%= p('s3-broker.tls.private_key') %>",
+    "ca": "<%= p('s3-broker.tls.ca') %>"
+  },
+
   "locket": {
     "address": "<%= p('s3-broker.locket.api_location') %>",
     "ca_cert_file": "/var/vcap/jobs/s3-broker/config/locket.ca_cert.crt",
