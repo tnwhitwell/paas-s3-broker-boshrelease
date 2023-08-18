@@ -42,6 +42,7 @@ function commit_and_push() {
     unpriv_username="${3}"
     package_name="${4}"
     repository_name="${5}"
+    packaged_release_file="${6:-vendor-packaging.yml}"
 
     new_branch_name="auto-bump-${package_name}-$(date -u '+%Y%m%dT%H%M')"
 
@@ -56,10 +57,12 @@ function commit_and_push() {
 }
 
 function create_pr() {
-    pr_body_template="${1}"
+    pr_body_template="${1:-./.github/workflows/automatic_golang_bump_pr_body.md}"
     unpriv_username="${2}"
     new_branch_name="${3}"
     package_name="${4}"
+
+    echo "Creating a PR for branch '${new_branch_name}' with package '${package_name}'"
 
     FINAL_BODY=$(mktemp)
     envsubst < "$pr_body_template" > "$FINAL_BODY"

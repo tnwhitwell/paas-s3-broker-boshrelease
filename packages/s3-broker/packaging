@@ -2,11 +2,7 @@
 
 set -e -x -u -o pipefail
 
-GOROOT=$(readlink -nf /var/vcap/packages/golang)
-export GOROOT
-export PATH=${GOROOT}/bin:${PATH}
-export GOPATH=/var/vcap/go
-export GOCACHE=/var/vcap/gocache
+source /var/vcap/packages/golang-1.20-linux/bosh/compile.env
 export GO111MODULE=on
 
 echo "Building S3 Service Broker..."
