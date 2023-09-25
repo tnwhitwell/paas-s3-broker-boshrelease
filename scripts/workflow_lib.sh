@@ -62,10 +62,11 @@ function create_pr() {
     new_branch_name="${3}"
     package_name="${4}"
 
+    echo "Creating a PR for branch '${new_branch_name}' with package '${package_name}'"
+
     FINAL_BODY=$(mktemp)
     envsubst < "$pr_body_template" > "$FINAL_BODY"
 
-    echo "Creating a PR for branch ${new_branch_name} with package ${package_name}"
     gh pr create \
         --base main \
         --head "${unpriv_username}:${new_branch_name}" \
