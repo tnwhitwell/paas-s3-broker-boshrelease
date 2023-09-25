@@ -12,6 +12,9 @@ env:
   PACKAGE_NAME: Golang
   GH_TOKEN: ${{ github.token }}
 
+permissions:
+  pull-requests: write
+
 jobs:
   generate-golang-bump-pr:
     runs-on: ubuntu-latest
