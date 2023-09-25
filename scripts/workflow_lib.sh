@@ -57,7 +57,7 @@ function commit_and_push() {
 }
 
 function create_pr() {
-    pr_body_template="${1}"
+    pr_body_template="${1:-./.github/workflows/automatic_golang_bump_pr_body.md}"
     unpriv_username="${2}"
     new_branch_name="${3}"
     package_name="${4}"
@@ -65,6 +65,7 @@ function create_pr() {
     FINAL_BODY=$(mktemp)
     envsubst < "$pr_body_template" > "$FINAL_BODY"
 
+    echo "Creating a PR for branch ${new_branch_name} with package ${package_name}"
     gh pr create \
         --base main \
         --head "${unpriv_username}:${new_branch_name}" \
