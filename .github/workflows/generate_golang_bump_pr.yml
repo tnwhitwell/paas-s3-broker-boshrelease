@@ -10,7 +10,6 @@ env:
   VENDOR_PACKAGING_CONFIGURATION: vendor-packaging.yml
   TEMPLATE_VENDOR_PACKAGING_CONFIGURATION: template-vendor-packaging.yml
   PACKAGE_NAME: Golang
-  GH_TOKEN: ${{ github.token }}
 
 permissions:
   pull-requests: write
@@ -32,6 +31,8 @@ jobs:
           go install github.com/mikefarah/yq/v4@5ef537f3fd1a9437aa3ee44c32c6459a126efdc4  # v4.34.1
 
       - name: make the PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GOVUK_PAAS_UNPRIVILEGED_BOT_PAT }}
         run: |
           . ./scripts/workflow_lib.sh
 
