@@ -10,6 +10,7 @@ env:
   VENDOR_PACKAGING_CONFIGURATION: vendor-packaging.yml
   TEMPLATE_VENDOR_PACKAGING_CONFIGURATION: template-vendor-packaging.yml
   PACKAGE_NAME: Golang
+  GH_TOKEN: ${{ github.token }}
 
 jobs:
   generate-golang-bump-pr:
