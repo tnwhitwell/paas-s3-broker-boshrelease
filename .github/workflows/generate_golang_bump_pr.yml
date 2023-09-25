@@ -33,7 +33,7 @@ jobs:
 
           if [ $(do_vendor_packaging) = 1 ]; then
             REPOSITORY_NAME=${GITHUB_REPOSITORY#*/}
-            PR_TEMPLATE="./.github/workflows/automatic_buildpack_bump_pr_body.md"
+            PR_TEMPLATE="./.github/workflows/automatic_golang_bump_pr_body.md"
 
             NEW_BRANCH_NAME=$(commit_and_push "${GIT_AUTHOR_EMAIL}" "${GIT_AUTHOR_NAME}" "${GITHUB_UNPRIV_USERNAME}" "${PACKAGE_NAME}" "${REPOSITORY_NAME}")
             create_pr "${PR_TEMPLATE}" "${GITHUB_UNPRIV_USERNAME}" "${NEW_BRANCH_NAME}" "${PACKAGE_NAME}"
