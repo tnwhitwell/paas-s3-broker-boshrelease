@@ -42,6 +42,7 @@ function commit_and_push() {
     unpriv_username="${3}"
     package_name="${4}"
     repository_name="${5}"
+    packaged_release_file="${6:-vendor-packaging.yml}"
 
     new_branch_name="auto-bump-${package_name}-$(date -u '+%Y%m%dT%H%M')"
 
