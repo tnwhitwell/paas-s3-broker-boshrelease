@@ -11,9 +11,6 @@ env:
   TEMPLATE_VENDOR_PACKAGING_CONFIGURATION: template-vendor-packaging.yml
   PACKAGE_NAME: Golang
 
-permissions:
-  pull-requests: write
-
 jobs:
   generate-golang-bump-pr:
     runs-on: ubuntu-latest
