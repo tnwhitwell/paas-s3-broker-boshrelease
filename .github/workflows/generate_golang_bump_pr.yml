@@ -28,14 +28,16 @@ jobs:
           go install github.com/mikefarah/yq/v4@5ef537f3fd1a9437aa3ee44c32c6459a126efdc4  # v4.34.1
 
       - name: make the PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GOVUK_PAAS_UNPRIVILEGED_BOT_PAT }}
         run: |
           . ./scripts/workflow_lib.sh
 
           if [ $(do_vendor_packaging) = 1 ]; then
             REPOSITORY_NAME=${GITHUB_REPOSITORY#*/}
-            PR_TEMPLATE="./.github/workflows/automatic_buildpack_bump_pr_body.md"
+            PR_TEMPLATE="./.github/workflows/automatic_golang_bump_pr_body.md"
 
-            NEW_BRANCH_NAME=$(commit_and_push "${GIT_AUTHOR_EMAIL}" "${GIT_AUTHOR_NAME}" "${GITHUB_UNPRIV_USERNAME}" "${PACKAGE_NAME}" "${REPOSITORY_NAME}")
+            NEW_BRANCH_NAME=$(commit_and_push "${GIT_AUTHOR_EMAIL}" "${GIT_AUTHOR_NAME}" "${GITHUB_UNPRIV_USERNAME}" "${PACKAGE_NAME}" "${REPOSITORY_NAME}" | tail -n 1)
             create_pr "${PR_TEMPLATE}" "${GITHUB_UNPRIV_USERNAME}" "${NEW_BRANCH_NAME}" "${PACKAGE_NAME}"
           else
             echo "No ${PACKAGE_NAME} update found. No PR will be generated."
