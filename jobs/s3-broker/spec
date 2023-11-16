@@ -31,6 +31,10 @@ properties:
     default: "/paas-s3-broker/"
   s3-broker.iam_ip_restriction_policy_arn:
     description: "ARN for IP restricion policy"
+  s3-broker.iam_common_user_policy_arn:
+    description: "ARN of an IAM policy to attach to all created users"
+  s3-broker.iam_user_permissions_boundary_arn:
+    description: "ARN of an IAM policy to apply as a permissions boundary for all created users"
   s3-broker.deploy_environment:
     description: "Environment this broker is deployed into"
   s3-broker.locket.api_location:
