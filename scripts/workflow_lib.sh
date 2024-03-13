@@ -5,7 +5,7 @@ packaged_release_template=$(cat <<-EOF
 packaged_release:
     name: bosh-package-golang-release
     repo: https://github.com/cloudfoundry/bosh-package-golang-release.git
-    package: golang-1.20-linux
+    package: golang-1.21-linux
     tag: v0.134.0
 EOF
 )
