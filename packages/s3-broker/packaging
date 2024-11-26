@@ -2,8 +2,7 @@
 
 set -e -x -u -o pipefail
 
-source /var/vcap/packages/golang-1.21-linux/bosh/compile.env
-export GO111MODULE=on
+source /var/vcap/packages/golang-1.23-linux/bosh/compile.env
 
 echo "Building S3 Service Broker..."
 cd ${BOSH_COMPILE_TARGET}/paas-s3-broker/
