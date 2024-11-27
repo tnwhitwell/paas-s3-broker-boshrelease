@@ -2,7 +2,7 @@
 name: s3-broker
 
 dependencies:
-  - golang-1.21-linux
+  - golang-1.23-linux
 
 files:
   - paas-s3-broker/**/*
